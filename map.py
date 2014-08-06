@@ -41,7 +41,7 @@ class Room:
 
 class Map:
     def __init__(self):
-        self.rooms = []
+        self.rooms = {}
         self.name = ''
 
     def add_room(self, fromRoom=None, direction=None):
