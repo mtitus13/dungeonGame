@@ -74,7 +74,8 @@ class Map:
         """
         map = None
         if os.path.exists("maps/" + mapFileName):
-            map = cPickle.load("maps/" + mapFileName)
+            file = open("maps/" + mapFileName, "r")
+            map = cPickle.load(file)
         else:
             raise IOError("Map file not in the maps directory: " + mapFileName)
         return map
@@ -84,4 +85,5 @@ class Map:
         Saves the map in a file under the maps/ directory
         :param string mapFileName: file to save as
         """
-        cPickle.dump(self, "maps/" + mapFileName)
+        file = open("maps/" + mapFileName)
+        cPickle.dump(self, file)
