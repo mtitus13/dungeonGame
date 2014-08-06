@@ -39,6 +39,15 @@ class Room:
         cprint("[Exits: " + reduce(lambda exit_string, exit_name: exit_string + ', ' + exit_name, exits) + "]",
                'white', attrs=['bold'])
 
+    def __str__(self):
+        myStr = "<Room ID: " + self.id + " + Exits: "
+        exits = self.exits.keys()
+        if len(exits) == 0:
+            exits.append('none')
+        myStr += reduce(lambda exit_string, exit_name: exit_string + ', ' + exit_name, exits) + ">"
+        return myStr
+
+
 class Map:
     def __init__(self):
         """

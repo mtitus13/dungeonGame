@@ -34,3 +34,5 @@ else:
     room1 = gameMap.rooms[0]
 
 gameMap.rooms[game.player.roomId].print_desc(True)
+
+print gameMap.rooms
