@@ -15,8 +15,8 @@ class Room:
         self.exits = {}
         self.description = ''
         self.title = ''
-        self.id = self.id_counter
-        self.id_counter += 1
+        self.id = Room.id_counter
+        Room.id_counter += 1
 
     def print_desc(self, editmode=False):
         """
