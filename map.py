@@ -41,6 +41,9 @@ class Room:
 
 class Map:
     def __init__(self):
+        """
+        @type self.rooms: dict[int, Room]
+        """
         self.rooms = {}
         self.name = ''
 
@@ -48,7 +51,7 @@ class Map:
         """
         Creates a new Room and adds it to the room list
         :param Room fromRoom: If set with direction, creates a link linking this room with the newly created room, and a link back.
-        :return Room: The new room
+        :rtype: Room
         """
         room = Room()
         if fromRoom is not None:
@@ -67,7 +70,10 @@ class Map:
         """
         Gets a map from the maps directory
         :param string mapFileName: file name of map to load. must exist as a file under "maps/" under base directory
-        :return Map: Unpickled map
+        :rtype: Map
+        """
+        """
+        @type map: Map
         """
         map = None
         if os.path.exists("maps/" + mapFileName):
@@ -75,9 +81,7 @@ class Map:
             map = cPickle.load(file)
         else:
             raise IOError("Map file not in the maps directory: " + mapFileName)
-        """
-        :type Map map:
-        """
+
         return map
 
     def save_map(self, mapFileName):

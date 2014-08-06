@@ -1,4 +1,3 @@
-from termcolor import colored, cprint
 from map import *
 from player import Player
 
@@ -16,7 +15,7 @@ class Game:
     def new_map(self):
         """
         Creates a map object and sets it as the active map. Also sets the player's location to room 0
-        :return Map: A new map
+        :rtype: Map
         """
         self.map = Map()
         self.player.roomId = 0
@@ -26,7 +25,7 @@ class Game:
         """
         Creates a map and loads it from disk. Sets the player's location to room 0
         :param string mapFileName: File name
-        :return Map: Loaded map object
+        :rtype: Map
         """
         self.new_map()
         self.map = Map.load_map(mapFileName)

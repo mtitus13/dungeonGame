@@ -31,9 +31,6 @@ if 'debug_makeMap' in sys.argv:
     gameMap.save_map("testmap.map")
 else:
     gameMap = game.load_map("testmap.map")
-    """
-    :type Map gameMap
-    """
     room1 = gameMap.rooms[0]
 
 gameMap.rooms[game.player.roomId].printDesc()
