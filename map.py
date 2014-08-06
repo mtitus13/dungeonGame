@@ -1,5 +1,8 @@
 __author__ = 'mtitus'
 
+from termcolor import colored, cprint
+import cPickle
+
 class Direction:
     directions = ['north', 'east', 'south', 'west']
     opposites = {'north': 'south', 'east': 'west', 'south': 'north', 'west': 'east'}
@@ -19,13 +22,16 @@ class Room:
         room_id = ''
         if editmode:
             room_id = " [ID: %d]" % (self.id,)
-        print self.title + room_id
-        print "    " + self.description
+        cprint(self.title + room_id, 'yellow', attrs=['bold'])
+
+        cprint("    " + self.description, 'blue')
+
         exits = self.exits.keys()
         if len(exits) == 0:
             exits.append('none')
 
-        print "[Exits: " + reduce(lambda exit_string, exit_name: exit_string + ', ' + exit_name, exits, '') + "]"
+        cprint("[Exits: " + reduce(lambda exit_string, exit_name: exit_string + ', ' + exit_name, exits, '') + "]",
+               'white', attrs=['bold'])
 
 
 class Map:
@@ -36,3 +42,21 @@ class Map:
         room = Room()
         self.rooms[room.id] = room.id
         return room
+
+    @staticmethod
+    def load_map(mapFileName):
+        """
+        :param mapFileName: string
+        :return: Map
+        """
+        """
+        :type map: Map
+        """
+        map = cPickle.load("maps/" + mapFileName)
+        return map
+
+    def save_map(self, mapFileName):
+        """
+        :param mapFileName: string
+        """
+        cPickle.dump(self, "maps/" + mapFileName)
