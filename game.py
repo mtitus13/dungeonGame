@@ -1,5 +1,5 @@
 import sys
-from termcolor.termcolor import colored, cprint
+from termcolor import colored, cprint
 
 __author__ = 'mtitus'
 
