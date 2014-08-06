@@ -85,5 +85,5 @@ class Map:
         Saves the map in a file under the maps/ directory
         :param string mapFileName: file to save as
         """
-        file = open("maps/" + mapFileName)
+        file = open("maps/" + mapFileName, "w")
         cPickle.dump(self, file)
