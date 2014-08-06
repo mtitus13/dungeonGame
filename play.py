@@ -33,4 +33,4 @@ else:
     gameMap = game.load_map("testmap.map")
     room1 = gameMap.rooms[0]
 
-gameMap.rooms[game.player.roomId].print_desc()
+gameMap.rooms[game.player.roomId].print_desc(True)
