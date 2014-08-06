@@ -36,7 +36,7 @@ class Room:
         if len(exits) == 0:
             exits.append('none')
 
-        cprint("[Exits: " + reduce(lambda exit_string, exit_name: exit_string + ', ' + exit_name, exits, '') + "]",
+        cprint("[Exits: " + reduce(lambda exit_string, exit_name: exit_string + ', ' + exit_name, exits) + "]",
                'white', attrs=['bold'])
 
 class Map:
@@ -59,7 +59,7 @@ class Map:
 
             fromRoom.exits[direction] = room
             room.exits[backDirection] = fromRoom
-        self.rooms[room.id] = room.id
+        self.rooms[room.id] = room
         return room
 
     @staticmethod
@@ -69,15 +69,15 @@ class Map:
         :param string mapFileName: file name of map to load. must exist as a file under "maps/" under base directory
         :return Map: Unpickled map
         """
-        """
-        :type map: Map
-        """
         map = None
         if os.path.exists("maps/" + mapFileName):
             file = open("maps/" + mapFileName, "r")
             map = cPickle.load(file)
         else:
             raise IOError("Map file not in the maps directory: " + mapFileName)
+        """
+        :type Map map:
+        """
         return map
 
     def save_map(self, mapFileName):
