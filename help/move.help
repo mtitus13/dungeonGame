@@ -1,0 +1,7 @@
+    Syntax: move <direction>
+Leave the room by going through the specified exit for the room.
+Note that the following common directions have 'move' aliases of the word themselves and also their first initial:
+  north (n)
+  east (e)
+  south (s)
+  west (w)

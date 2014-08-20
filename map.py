@@ -40,7 +40,7 @@ class Room:
                'white', attrs=['bold'])
 
     def __str__(self):
-        myStr = "<Room ID: " + self.id + " + Exits: "
+        myStr = "<Room ID: %d + Exits: " % self.id
         exits = self.exits.keys()
         if len(exits) == 0:
             exits.append('none')
@@ -69,8 +69,8 @@ class Map:
             else:
                 backDirection = "exit"
 
-            fromRoom.exits[direction] = room
-            room.exits[backDirection] = fromRoom
+            fromRoom.exits[direction] = room.id
+            room.exits[backDirection] = fromRoom.id
         self.rooms[room.id] = room
         return room
 

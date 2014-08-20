@@ -1,11 +1,11 @@
 __author__ = 'mtitus'
 
 from game import Game
-import sys
+import os
 
 game = Game()
 
-if 'debug_makeMap' in sys.argv:
+if not os.path.exists("maps/testmap.map"):
     gameMap = game.new_map()
 
     room1 = gameMap.add_room()
@@ -33,6 +33,4 @@ else:
     gameMap = game.load_map("testmap.map")
     room1 = gameMap.rooms[0]
 
-gameMap.rooms[game.player.roomId].print_desc(True)
-
-print gameMap.rooms
+game.play()

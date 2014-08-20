@@ -1,0 +1,25 @@
+  Syntax: alias [<alias name> <command> <parameters>]
+Creates or updates an alias. You cannot create an alias with the same name as a base command. You cannot create an alias
+for an alias; the command entered must be a base command. You can specify any number of parameters after the base
+command and they will be automatically included in the alias. When using an alias, you can specify additional commands
+for that alias usage. Type 'alias' without any additional parameters to see all aliases.
+Examples:
+
+  alias c cast
+Creates an alias called 'c' for 'cast'
+After that:
+  c magic missile @goblin
+Will expand to:
+  cast magic missile @goblin
+
+  alias mm cast magic missile
+Creates an alias called 'mm' for 'cast' using 'magic missile'
+After that:
+  mm
+Will expand to:
+  cast magic missile
+which will cast on the previous target (see 'cast')
+And:
+  mm @goblin
+Will expand to:
+  cast magic missile @goblin

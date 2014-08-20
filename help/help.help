@@ -1,0 +1,2 @@
+  Syntax: help [<command>]
+Displays information for the command. If no command is specified, lists all commands.
