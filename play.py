@@ -33,4 +33,5 @@ else:
     gameMap = game.load_map("testmap.map")
     room1 = gameMap.rooms[0]
 
+print "Type 'help' for a list of commands."
 game.play()
